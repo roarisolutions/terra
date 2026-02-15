@@ -1,36 +1,28 @@
-variable "location" {
-  description = "The Azure region where resources will be created"
+variable "project_id" {
+  description = "The GCP project ID"
   type        = string
-  default     = "East US"
 }
 
-variable "resource_group_name_prefix" {
-  description = "Prefix for the resource group names"
+variable "region" {
+  description = "The GCP region"
   type        = string
-  default     = "rg-multi-vm-demo"
+  default     = "us-central1"
 }
 
-variable "vm_name_prefix" {
-  description = "Prefix for the VM names"
+variable "zone" {
+  description = "The GCP zone"
   type        = string
-  default     = "ubuntu-vm"
+  default     = "us-central1-a"
 }
 
-variable "vm_count" {
-  description = "The number of VMs to create"
+variable "machine_type" {
+  description = "The machine type for the VM instances"
+  type        = string
+  default     = "e2-micro"
+}
+
+variable "instance_count" {
+  description = "The number of VM instances to create"
   type        = number
   default     = 3
-}
-
-variable "admin_username" {
-  description = "The username for the VM administrator account"
-  type        = string
-  default     = "azureuser"
-}
-
-# You need to define a subnet ID in terraform.tfvars or use a data source to fetch an existing one.
-variable "subnet_id" {
-  description = "The ID of the subnet to place the VMs in"
-  type        = string
-  # No default value here, so you must specify it in terraform.tfvars
 }
